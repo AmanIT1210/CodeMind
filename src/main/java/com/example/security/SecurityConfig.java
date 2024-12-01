@@ -10,9 +10,9 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        // Disable security for testing
+        
         http.csrf().disable().authorizeHttpRequests()
-            .anyRequest().permitAll(); // Allow all endpoints without authentication
+            .anyRequest().permitAll();
 
         return http.build();
     }

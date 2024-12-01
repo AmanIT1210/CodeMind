@@ -16,7 +16,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-    // Endpoint to create employee
+    
     @PostMapping
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.saveEmployee(employee));
@@ -24,13 +24,13 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
-        System.out.println("Received ID: " + id);  // Debugging line
+        System.out.println("Received ID: " + id);  
         return employeeService.findById(id)
                 .map(employee -> ResponseEntity.ok(employee))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
 
-    // Endpoint to get all employees
+    
     @GetMapping
     public ResponseEntity<Page<Employee>> getAllEmployees(
             @RequestParam(defaultValue = "0") int page,
@@ -39,7 +39,7 @@ public class EmployeeController {
         return ResponseEntity.ok(employees);
     }
 
-    // Endpoint to delete employee by id
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteEmployee(@PathVariable Long id) {
         employeeService.deleteById(id);

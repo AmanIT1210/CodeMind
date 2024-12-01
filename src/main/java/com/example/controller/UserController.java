@@ -16,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder; // Inject BCryptPasswordEncoder
+    private BCryptPasswordEncoder passwordEncoder; 
 
     @PostMapping("/register")
     public ResponseEntity<String> registerUser(@RequestBody User user) {

@@ -30,5 +30,5 @@ public class Employee {
     @Column(name = "date_of_joining")
     private LocalDate dateOfJoining;
 
-    // Getters and setters
+    
 }
